@@ -7,7 +7,8 @@ do
     pwd=`pwd`
     currentName=`git config user.name`
     currentEmail=`git config user.email`
-    if [ ${name} == ${currentName} ] && [ ${email} == ${currentEmail} ]
+    # [Fix bash `unary operator expected` error.](https://stackoverflow.com/a/13618376)
+    if [[ ${name} == ${currentName} ]] && [[ ${email} == ${currentEmail} ]]
     then
         echo "check  ${pwd}"
     else
